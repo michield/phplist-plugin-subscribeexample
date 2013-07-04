@@ -24,7 +24,11 @@ class subscribepageexample extends phplistPlugin {
   
   function displaySubscribepageEdit($data) {
     
-    $myFieldValue = $data['myField'];
+    if (isset($data['myField'])) {
+      $myFieldValue = $data['myField'];
+    } else {
+      $myFieldValue = '';
+    }
     
     return s('Please enter a value').': <input type="text" name="myField" value="'.htmlspecialchars($myFieldValue).'" />';
     
